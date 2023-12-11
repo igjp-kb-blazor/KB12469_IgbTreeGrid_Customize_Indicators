@@ -1,0 +1,31 @@
+<div style="max-width: 800px; margin: 24px auto;">
+
+    @*
+    IgbTreeGrid の RowCollapsedIndicatorTemplateScript および 
+    RowExpandedIndicatorTemplateScript パラメーターに、
+    wwwroot/igb-treegrid-row-indicator.js で登録したスクリプトの名前を指定することで、
+    展開インジケーターに表示する要素を、それらスクリプトで生成するようカスタマイズします。
+    *@
+
+    <IgbTreeGrid Width="100%"
+                 Height="400px"
+                 Data="EmployeesNestedData"
+                 ChildDataKey="Employees"
+                 AutoGenerate="false"
+                 DisplayDensity="DisplayDensity.Cosy"
+                 RowCollapsedIndicatorTemplateScript="rowCollapsedIndicator"
+                 RowExpandedIndicatorTemplateScript="rowExpandedIndicator">
+
+        <IgbColumn Field="@nameof(EmployeesNestedDataItem.Name)" DataType="GridColumnDataType.String" />
+
+        <IgbColumn Field="@nameof(EmployeesNestedDataItem.HireDate)" DataType="GridColumnDataType.Date" />
+
+        <IgbColumn Field="@nameof(EmployeesNestedDataItem.Age)" DataType="GridColumnDataType.Number" />
+
+    </IgbTreeGrid>
+</div>
+
+@code
+{
+    private readonly EmployeesNestedData EmployeesNestedData = new();
+}
